@@ -19,7 +19,6 @@ public class Customer {
 	public Customer(String name) {
 		_name = name;
 		_rentals = new ArrayList<Rental>();
-
 	};
 
 	public void addRental(Rental arg) {
@@ -38,9 +37,8 @@ public class Customer {
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = rentals.next();
-			thisAmount = each._movie._movieType.getCharge(each);
-			
-			frequentRenterPoints += each._movie.getFrequentRenterPoints(each);
+			thisAmount = each.getMovie().getCharge(each);
+			frequentRenterPoints += each.getMovie().getFrequentRenterPoints(each);
 			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t"
 					+ String.valueOf(thisAmount) + "\n";
@@ -61,9 +59,8 @@ public class Customer {
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = rentals.next();
-			thisAmount = each._movie._movieType.getCharge(each);
-
-			frequentRenterPoints += each._movie.getFrequentRenterPoints(each);
+			thisAmount = each.getMovie().getCharge(each);
+			frequentRenterPoints += each.getMovie().getFrequentRenterPoints(each);
 			// show figures for this rental
 			result += "<h2>" + each.getMovie().getTitle() + " "
 					+ String.valueOf(thisAmount) + "</h2>";
